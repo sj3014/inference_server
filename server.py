@@ -15,6 +15,12 @@ log.setLevel(logging.ERROR)
 
 loaded_model = tf.saved_model.load('./combined_slow')
 print(loaded_model.signatures)
+print(tf.config.list_physical_devices('GPU'))
+
+
+@app.route('/')
+def home():
+    return 'hi'
 
 @app.route('/infer', methods=['POST'])
 def index():
